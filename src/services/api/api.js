@@ -12,7 +12,7 @@ export function generateUrl(path) {
 
 export function apiReq(endPoint, data, method, headers, requestOptions = {}) {
 	return new Promise((res, rej) => {
-		headers = { ...headers, Authorization: "Bearer " + store.getState().auth.token }
+		headers = { ...headers }
 		if (method === 'get' || method === 'delete') {
 			data = {
 				...requestOptions,
