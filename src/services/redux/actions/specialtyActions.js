@@ -6,9 +6,6 @@ import {
     ERROR_SPECIALTY
 } from './actionTypes/specialtyActionTypes'
 import {
-    UNAUTHORIZED
-} from './actionTypes/authActionTypes'
-import {
     getSpecialties as getSpecialtiesAPI,
     createSpecialty as createSpecialtyAPI,
     updateSpecialty as updateSpecialtyAPI,

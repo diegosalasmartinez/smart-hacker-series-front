@@ -1,15 +1,14 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { routesAdmin, routesDoctor, routesSecretary } from '../routes'
+import { allRoutes } from '../routes'
 
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react'
 import { useSelector } from 'react-redux'
 
 const AppBreadcrumb = () => {
   const currentLocation = useLocation().pathname
-  const userRole = useSelector((state) => state.auth.user.role);
-  const routes = userRole === "ADMIN" ? routesAdmin : userRole === "DOCTOR" ? routesDoctor : userRole === "SECRETARY" ? routesSecretary : [];
+  const routes = allRoutes;
 
   const getRouteName = (pathname, routes) => {
     const currentRoute = routes.find((route) => route.path === pathname)

@@ -3,20 +3,8 @@ import { AppContent, AppSidebar, AppFooter, AppHeader } from '../components/inde
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as specialtyActions from '../services/redux/actions/specialtyActions'
-import * as authActions from '../services/redux/actions/authActions'
 
 export class DefaultLayout extends Component {
-  async componentDidMount() {
-    if (!this.props.auth.user.role && this.props.auth.user.role !== "DOCTOR") {
-      await this.props.getSpecialties();
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (!this.props.auth.token || this.props.auth.token !== prevProps.auth.token) {
-      this.props.history.push("/login");
-    }
-  }
 
   onLogout = async () => {
     await this.props.logout();
@@ -40,13 +28,13 @@ export class DefaultLayout extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-      ...bindActionCreators(Object.assign({}, specialtyActions, authActions), dispatch)
+      ...bindActionCreators(Object.assign({}, specialtyActions), dispatch)
   }
 }
 
