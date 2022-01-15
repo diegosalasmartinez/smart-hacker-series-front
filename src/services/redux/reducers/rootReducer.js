@@ -5,7 +5,8 @@ import specialty from './specialtyReducer'
 
 const rootReducer = combineReducers({
 	changeState,
-	specialty
+	specialty,
+	people
 })
 
 export default rootReducer
