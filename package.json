@@ -1,10 +1,10 @@
 {
-  "name": "health-care",
+  "name": "searching-you",
   "version": "1.0.0",
-  "description": "Health Care System",
+  "description": "Searching You System",
   "homepage": ".",
   "license": "MIT",
-  "author": "Diego Alejandro Salas Martínez",
+  "author": "Diego Salas M. & Jeferson Miranda G.",
   "scripts": {
     "build": "react-scripts build",
     "changelog": "auto-changelog --starting-version 3.0.0 --commit-limit false --hide-credit",

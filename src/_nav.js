@@ -22,9 +22,9 @@ const navAdmin = [
   },
   {
     component: CNavItem,
-    name: 'Specialties',
+    name: 'Personas',
     to: '/specialties',
-    icon: <CIcon icon={cilHospital} customClassName="nav-icon" />
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />
   },
   // {
   //   component: CNavItem,

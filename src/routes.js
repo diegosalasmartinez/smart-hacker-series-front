@@ -3,6 +3,8 @@ import React from 'react'
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 
 const Specialties = React.lazy(() => import('./views/specialties/Specialties'))
+const People = React.lazy(() => import('./views/people/People'))
+
 // const Doctors = React.lazy(() => import('./views/doctors/Doctors'))
 // const Patients = React.lazy(() => import('./views/patients/Patients'))
 // const PatientDetails = React.lazy(() => import('./views/patients/PatientDetails'))
@@ -14,7 +16,8 @@ const Specialties = React.lazy(() => import('./views/specialties/Specialties'))
 const allRoutes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/specialties', name: 'Specialties', component: Specialties },
+  { path: '/specialties', name: 'Especialidades', component: Specialties },
+  { path: '/people', name: 'Personas', component: People },
   // { path: '/doctors', name: 'Doctors', component: Doctors },
   // { path: '/patients', name: 'Patients', component: Patients, exact: true },
   // { path: '/patients/create', name: 'Create Patient', component: PatientDetails },

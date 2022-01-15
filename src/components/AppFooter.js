@@ -5,7 +5,7 @@ const AppFooter = () => {
   return (
     <CFooter>
       <div style={{fontSize: '15px'}}>
-        Desarrollado por Diego Alejandro Salas Martínez
+        Developed by Diego Salas M. & Jeferson Miranda G.
       </div>
     </CFooter>
   )

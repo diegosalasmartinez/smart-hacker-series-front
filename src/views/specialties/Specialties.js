@@ -2,13 +2,20 @@ import React, { Component } from 'react'
 import { 
     CAlert,
     CButton,
+    CCard,
+    CCardBody,
+    CCardHeader,
     CCol,
+    CFormInput,
     CRow,
     CSpinner,
-    CTooltip
+    CTooltip,
+    CForm,
+    CFormText,
+    CFormLabel
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilMedicalCross } from '@coreui/icons'
+import { cilMagnifyingGlass } from '@coreui/icons'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as specialtyActions from '../../services/redux/actions/specialtyActions'
@@ -115,37 +122,31 @@ export class Specialties extends Component {
                 { notifications.map((notification, index) => 
                     <Notification key={index} mode={notification.mode} title={notification.title} body={notification.body}></Notification>
                 )}
-                { loaded && !failed && 
-                    <CRow>
-                        <CCol xs="12" className="right-side mb-3">
-                            <CTooltip content="Add a new specialty" placement="top">
-                                <CButton onClick={this.onAdd} style={{color: 'white'}}>
-                                    <CIcon icon={cilMedicalCross} size="sm"/>
-                                </CButton>
-                            </CTooltip>
+                { loaded && !failed &&
+                    <>
+                        <CCol xs="3" className="mb-4">
+                            <CCard>
+                                <CCardBody>
+                                    <h4>Búsqueda de personas</h4>
+                                </CCardBody>
+                            </CCard>
                         </CCol>
-                        <SpecialtyTable
-                            specialties={specialties}
-                            onUpdate={this.onUpdate}
-                            onDelete={this.onDelete}
-                        />
-                        <SpecialtyDetails
-                            visible={showOffcanvas} 
-                            mode={mode} 
-                            specialtySelected={specialtySelected}
-                            onSave={this.onAccept}
-                            onClose={this.onCloseOffcanvas}
-                        />
-                        <Confirmation
-                            type="specialty"
-                            mode={mode} 
-                            body={specialtySelected.code + " - " + specialtySelected.name}
-                            object={specialtySelected}
-                            visible={showConfirmationModal} 
-                            onAccept={this.onSave}
-                            onClose={this.onCloseConfirmation}
-                        />
-                    </CRow>
+
+                        <CForm className='row'>
+                            {/* <CCol xs="7" className="mb-3" style={{width: '18%'}}>
+                                <CFormLabel><h6>Ingrese el link de linkedIn:</h6></CFormLabel>
+                            </CCol> */}
+                            <CCol xs="5">
+                                <CFormInput type="text" id="name" placeholder='Ingrese el link de linkedIn o nombre de la persona'/*value={specialty.name} onChange={this.onChange('name', false, false)} invalid={!firstTime && errors.name !== null}*//>
+                            </CCol>
+                            <CCol xs="2">
+                                <CButton onClick={this.onSearch} style={{color: 'white'}}>
+                                    <CIcon icon={cilMagnifyingGlass} size="lg"/>
+                                </CButton>
+                            </CCol>
+                        </CForm>
+                        
+                    </>
                 }
                 { !loaded &&
                     <CRow className="center">
