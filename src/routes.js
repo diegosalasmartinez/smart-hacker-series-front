@@ -16,7 +16,7 @@ const People = React.lazy(() => import('./views/people/People'))
 const allRoutes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/specialties', name: 'Especialidades', component: Specialties },
+  { path: '/specialties', name: 'Personas', component: Specialties },
   { path: '/people', name: 'Personas', component: People },
   // { path: '/doctors', name: 'Doctors', component: Doctors },
   // { path: '/patients', name: 'Patients', component: Patients, exact: true },

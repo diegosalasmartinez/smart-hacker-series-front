@@ -27,6 +27,7 @@ import SpecialtyTable from './SpecialtyTable'
 import SpecialtyModel from '../../services/models/SpecialtyModel'
 import Confirmation from '../../components/common/Confirmation'
 import SpecialtyDetails from './SpecialtyDetails'
+import generatePersonFile from '../../services/reports/reports'
 
 export class Specialties extends Component {
     constructor(props) {
@@ -111,6 +112,11 @@ export class Specialties extends Component {
         });
     }
 
+    onClickGenerateFile = async () => {
+        const { reportInfo, time } = this.props;
+        await generatePersonFile(reportInfo, time)
+    }
+
     render() {
         const { specialties, loaded, failed, error, notifications, showOffcanvas, showConfirmationModal, mode, specialtySelected } = this.state;
 
@@ -137,10 +143,10 @@ export class Specialties extends Component {
                                 <CFormLabel><h6>Ingrese el link de linkedIn:</h6></CFormLabel>
                             </CCol> */}
                             <CCol xs="5">
-                                <CFormInput type="text" id="name" placeholder='Ingrese el link de linkedIn o nombre de la persona'/*value={specialty.name} onChange={this.onChange('name', false, false)} invalid={!firstTime && errors.name !== null}*//>
+                                <CFormInput type="text" id="name" placeholder='Ingrese el link de linkedIn o nombre de la persona'/*onChange={this.onChange('name', false, false)}*//>
                             </CCol>
                             <CCol xs="2">
-                                <CButton onClick={this.onSearch} style={{color: 'white'}}>
+                                <CButton className="btn-search-person" onClick={this.onClickGenerateFile } style={{color: 'white'}}>
                                     <CIcon icon={cilMagnifyingGlass} size="lg"/>
                                 </CButton>
                             </CCol>
